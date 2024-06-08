@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<style>
+  @media (prefers-color-scheme: light) {
+    html {
+      background-color: #EEE;
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    html {
+      background-color: #0d0c0c;
+    }
+  }
+</style>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image" href="./images/logo_transparent.png">
+
+  <link rel="stylesheet" href="style.css">
+  <title>Calcule Moyenne Bac Info</title>
+</head>
+
+<body color-scheme="dark">
+  <button id="theme">
+    ☀🌙
+  </button>
+
+  <header>
+    <div id="header__content">
+      <h1>
+        Calcule Moyenne Bac Info
+      </h1>
+    </div>
+  </header>
+
+  <main>
+    <section id="hero">
+      <div class="card">
+        <label>Mathématique :</label>
+        <input type="text" placeholder="votre note.." id="math">
+      </div>
+      <div class="card">
+        <label>Physique :</label>
+        <input type="text" placeholder="votre note.." id="phy">
+      </div>
+      <div class="card">
+        <label>Programmation : <span>(pratique)</span></label>
+        <input type="text" placeholder="votre note.." id="prog-part">
+      </div>
+      <div class="card">
+        <label>Programmation : <span>(théorique)</span></label>
+        <input type="text" placeholder="votre note.." id="prog-theo">
+      </div>
+      <div class="card">
+        <label>TIC : <span>(pratique)</span></label>
+        <input type="text" placeholder="votre note.." id="tic-prat">
+      </div>
+      <div class="card">
+        <label>Base de donnée : <span>(théorique)</span></label>
+        <input type="text" placeholder="votre note.." id="tic-theo">
+      </div>
+      <div class="card">
+        <label>Arabe : </label>
+        <input type="text" placeholder="votre note.." id="ar">
+      </div>
+      <div class="card">
+        <label>Français : </label>
+        <input type="text" placeholder="votre note.." id="fr">
+      </div>
+      <div class="card">
+        <label>Anglais : </label>
+        <input type="text" placeholder="votre note.." id="en">
+      </div>
+      <div class="card">
+        <label>Philosophie : </label>
+        <input type="text" placeholder="votre note.." id="philo">
+      </div>
+      <div class="card">
+        <label>Sport : <span>(Moyenne bac sport)</span></label>
+        <input type="text" placeholder="votre note.." id="sport">
+      </div>
+      <div class="card">
+        <label>Option : </label>
+        <input type="text" placeholder="votre note.." id="option">
+      </div>
+    </section>
+
+    <section id="btns">
+      <button id="annuler">Annuler</button>
+      <button id="calc">Calculer</button>
+    </section>
+
+    <br>
+    <hr style="max-width: 80rem; margin-inline: auto; border: 1px solid #333">
+    <br>
+
+    <section id="resultat">
+      <div>
+        <h3>Moyenne :</h3>
+        <input type="text" id="moy" readonly>
+      </div>
+      <div>
+        <h3>Score (FG : Formule Globale) :</h3>
+        <input type="text" id="score" readonly>
+      </div>
+      <div>
+        <h3>Score + التنفيل الجغرافي (7%) :</h3>
+        <input type="text" id="score+" readonly>
+      </div>
+    </section>
+
+  </main>
+
+</body>
+<script src="script.js"></script>
+
+</html>
