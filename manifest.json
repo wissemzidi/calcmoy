@@ -10,7 +10,7 @@
   "theme_color": "#111111",
   "icons": [
     {
-      "src": "./images/logo_transparent.png",
+      "src": "https://calcmoy.netlify.app/images/logo.png",
       "type": "image/png",
       "sizes": "500x500"
     }
