@@ -1,4 +1,17 @@
 {
+  "id": "",
+  "name": "CalcMoy",
+  "short_name": "CalcMoy",
+  "background_color": "#111111",
+  "theme_color": "#111111",
+  "start_url": "/",
+  "display": "standalone",
+  "display_override": "standalone",
+  "description": "Calcule votre moyenne",
+  "lang": "en",
+  "dir": "auto",
+  "scope": "/",
+  "orientation": "any",
   "protocol_handlers": [
     {
       "protocol": "web+jngl",
@@ -9,30 +22,23 @@
       "url": "/"
     }
   ],
-  "background_color": "#111111",
-  "name": "CalcMoy",
-  "short_name": "CalcMoy",
-  "start_url": "/",
-  "display": "standalone",
-  "display_override": "standalone",
-  "description": "Calcule votre moyenne",
-  "lang": "en",
-  "dir": "auto",
-  "scope": "/",
-  "theme_color": "#000000",
-  "orientation": "any",
   "icons": [
     {
-      "src": "https://calcmoy.netlify.app/images/logo.png",
+      "src": "https://calcmoy.netlify.app/images/logo_transparent.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "https://calcmoy.netlify.app/images/logo.png",
+      "src": "https://calcmoy.netlify.app/images/logo_transparent.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
+    },
+    {
+      "src": "https://calcmoy.netlify.app/images/logo_transparent.png",
+      "sizes": "512x512",
+      "type": "image/png"
     }
   ],
   "screenshots": [
