@@ -1,6 +1,16 @@
 // This is the service worker with the combined offline experience (Offline page + Offline copy of pages)
 
-const CACHE = "calcmoy v1.0.0";
+const CACHE = "calcmoy v1.0.1";
+const assetsToCache = [
+  "/",
+  "/index.html",
+  "/styles.css",
+  "/app.js",
+  "/sw.js",
+  "/script.js",
+
+  "/images/*",
+];
 
 importScripts(
   "https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js"
