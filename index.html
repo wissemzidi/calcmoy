@@ -20,105 +20,70 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image" href="./images/logo_transparent.png">
 
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="./home/styles.css">
   <link rel="manifest" href="manifest.json" />
-  <title>Calcule Moyenne Bac Info</title>
+  <title>Calcule Moyenne</title>
 </head>
 
 <body color-scheme="dark">
-  <button id="theme">
-    ☀🌙
-  </button>
-
   <header>
+    <div id="header__top">
+      <a href="https://github.com/wissemzidi" id="sourceCode">
+        <img src="./icons/github.svg" alt="Github">
+      </a>
+
+      <button id="theme">
+        ☀🌙
+      </button>
+    </div>
+
     <div id="header__content">
       <h1>
-        Calcule Moyenne Bac Info
+        Calcule Moyenne
       </h1>
     </div>
   </header>
 
   <main>
     <section id="hero">
-      <div class="card">
-        <label>Mathématique :</label>
-        <input type="text" placeholder="votre note.." id="math">
-      </div>
-      <div class="card">
-        <label>Physique :</label>
-        <input type="text" placeholder="votre note.." id="phy">
-      </div>
-      <div class="card">
-        <label>Programmation : <span>(pratique)</span></label>
-        <input type="text" placeholder="votre note.." id="prog-part">
-      </div>
-      <div class="card">
-        <label>Programmation : <span>(théorique)</span></label>
-        <input type="text" placeholder="votre note.." id="prog-theo">
-      </div>
-      <div class="card">
-        <label>TIC : <span>(pratique)</span></label>
-        <input type="text" placeholder="votre note.." id="tic-prat">
-      </div>
-      <div class="card">
-        <label>Base de donnée : <span>(théorique)</span></label>
-        <input type="text" placeholder="votre note.." id="tic-theo">
-      </div>
-      <div class="card">
-        <label>Arabe : </label>
-        <input type="text" placeholder="votre note.." id="ar">
-      </div>
-      <div class="card">
-        <label>Français : </label>
-        <input type="text" placeholder="votre note.." id="fr">
-      </div>
-      <div class="card">
-        <label>Anglais : </label>
-        <input type="text" placeholder="votre note.." id="en">
-      </div>
-      <div class="card">
-        <label>Philosophie : </label>
-        <input type="text" placeholder="votre note.." id="philo">
-      </div>
-      <div class="card">
-        <label>Sport : <span>(Moyenne bac sport)</span></label>
-        <input type="text" placeholder="votre note.." id="sport">
-      </div>
-      <div class="card">
-        <label>Option : </label>
-        <input type="text" placeholder="votre note.." id="option">
-      </div>
+      <ul id="hero__list">
+        <li><a href="./info">
+            <img src="./icons/info.svg" alt="">
+            Informatique
+          </a></li>
+        <li><a href="./science">
+            <img src="./icons/science.svg" alt="">
+            Science
+          </a></li>
+        <li><a href="./tech">
+            <img src="./icons/tech.svg" alt="">
+            Technique
+          </a></li>
+        <li><a href="./math">
+            <img src="./icons/math.svg" alt="">
+            Mathématique
+          </a></li>
+        <li><a href="./eco">
+            <img src="./icons/eco.svg" alt="">
+            Économie G.
+          </a></li>
+        <li><a href="./lettre">
+            <img src="./icons/lettre.svg" alt="">
+            Lettre
+          </a></li>
+      </ul>
     </section>
-
-    <section id="btns">
-      <button id="annuler">Annuler</button>
-      <button id="calc">Calculer</button>
-    </section>
-
-    <br>
-    <hr style="max-width: 80rem; margin-inline: auto; border: 1px solid #333">
-    <br>
-
-    <section id="resultat">
-      <div>
-        <h3>Moyenne :</h3>
-        <input type="text" id="moy" readonly>
-      </div>
-      <div>
-        <h3>Score (FG : Formule Globale) :</h3>
-        <input type="text" id="score" readonly>
-      </div>
-      <div>
-        <h3>Score + التنفيل الجغرافي (7%) :</h3>
-        <input type="text" id="score+" readonly>
-      </div>
-    </section>
-
   </main>
 
+
+  <footer>
+    <p style="margin-block: 1rem; text-align: center; opacity: 0.25;">
+      TM © 2024 - wissemzidi - All Rights Reserved.
+    </p>
+  </footer>
 </body>
 
-<script src="./script.js"></script>
+<script src="./js/init.js"></script>
 <script async src="./app.js"></script>
 
 </html>

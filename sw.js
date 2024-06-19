@@ -1,66 +1,66 @@
-// This is the service worker with the combined offline experience (Offline page + Offline copy of pages)
+const staticCacheName = "calcmoy-V1.0.3";
+const assets = [
+  "./",
+  "./index.php",
+  "./home/styles.css",
 
-const CACHE = "calcmoy v1.0.1";
-const assetsToCache = [
-  "/",
-  "/index.html",
-  "/styles.css",
-  "/app.js",
-  "/sw.js",
-  "/script.js",
+  "./js/init.js",
+  "./errors/offline.html",
 
-  "/images/*",
+  "./science/",
+  "./science/index.html",
+  "./science/script.js",
+  "./eco/",
+  "./eco/index.html",
+  "./eco/script.js",
+  "./info/",
+  "./info/index.html",
+  "./info/script.js",
+  "./tech/",
+  "./tech/index.html",
+  "./tech/script.js",
+
+  "./styles.css",
+
+  "./images/logo.svg",
 ];
 
-importScripts(
-  "https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js"
-);
-
-// TODO: replace the following with the correct offline fallback page i.e.: const offlineFallbackPage = "offline.html";
-const offlineFallbackPage = "./errors/offline.html";
-
-self.addEventListener("message", (event) => {
-  if (event.data && event.data.type === "SKIP_WAITING") {
-    self.skipWaiting();
-  }
-});
-
-self.addEventListener("install", async (event) => {
-  event.waitUntil(
-    caches.open(CACHE).then((cache) => cache.add(offlineFallbackPage))
+self.addEventListener("install", (e) => {
+  // caching assets
+  e.waitUntil(
+    caches
+      .open(staticCacheName)
+      .then((cache) => {
+        assets.map((asset) => {
+          cache.add(asset);
+        });
+        cache.addAll("./icons/");
+      })
+      .then(() => self.skipWaiting())
   );
 });
 
-if (workbox.navigationPreload.isSupported()) {
-  workbox.navigationPreload.enable();
-}
-
-workbox.routing.registerRoute(
-  new RegExp("/*"),
-  new workbox.strategies.StaleWhileRevalidate({
-    cacheName: CACHE,
-  })
-);
-
 self.addEventListener("fetch", (event) => {
-  if (event.request.mode === "navigate") {
-    event.respondWith(
-      (async () => {
-        try {
-          const preloadResp = await event.preloadResponse;
+  event.respondWith(
+    caches.match(event.request).then((cachesRes) => {
+      return cachesRes || fetch(event.request);
+    })
+  );
+});
 
-          if (preloadResp) {
-            return preloadResp;
+self.addEventListener("activate", async (e) => {
+  console.log("Service Worker is active.");
+
+  // deleting old unwanted cached assets
+  e.waitUntil(
+    caches.keys().then((cachesNames) => {
+      return Promise.all(
+        cachesNames.map((cache) => {
+          if (cache !== staticCacheName) {
+            caches.delete(cache);
           }
-
-          const networkResp = await fetch(event.request);
-          return networkResp;
-        } catch (error) {
-          const cache = await caches.open(CACHE);
-          const cachedResp = await cache.match(offlineFallbackPage);
-          return cachedResp;
-        }
-      })()
-    );
-  }
+        })
+      );
+    })
+  );
 });

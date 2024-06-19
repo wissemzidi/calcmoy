@@ -1,0 +1,236 @@
+:root {
+  --clr-text-primary: #111;
+  --clr-bg: #f9f5f5;
+  --clr-bg-linear1: rgb(189, 164, 188);
+  --clr-border: rgb(85, 85, 85);
+  --clr-border-stripped: 85, 85, 85;
+
+  --font-xsmall: 0.8rem;
+  --font-small: 0.95rem;
+  --font-normal: 1.1rem;
+  --font-large: 1.25rem;
+  --font-xlarge: 1.5rem;
+  --font-xxlarge: 2rem;
+}
+
+:root body[color-scheme="dark"] {
+  color-scheme: dark;
+
+  --clr-text-primary: #eee;
+  --clr-bg: #0d0c0c;
+  --clr-bg-linear1: rgb(189, 164, 188);
+  --clr-bg-linear1-stripped: 189, 164, 188;
+}
+
+:root body[color-scheme="light"] {
+  color-scheme: light;
+
+  --clr-text-primary: #111;
+  --clr-bg: #f9f5f5;
+  --clr-bg-linear1: rgb(189, 164, 188);
+  --clr-bg-linear1-stripped: 189, 164, 188;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  display: none;
+  appearance: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  position: relative;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: var(--clr-bg);
+  color: var(--clr-text-primary);
+
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+header {
+  display: grid;
+  gap: 0.5rem;
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+}
+
+#header__top {
+  display: flex;
+  justify-content: space-between;
+}
+
+#sourceCode {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: 0.1rem;
+
+  color: #eee;
+  font-size: var(--font-normal);
+  background-color: black;
+  border-radius: 0.2rem;
+  border: none;
+  cursor: pointer;
+}
+#sourceCode img {
+  filter: invert(1);
+  max-width: 30px;
+}
+
+button#theme {
+  padding: 0.5rem 0.6rem;
+  border-radius: 99rem;
+  border: 1px solid var(--clr-text-primary);
+  background-color: var(--clr-bg);
+  cursor: pointer;
+  z-index: 999;
+}
+
+#header__content {
+  margin-inline: auto;
+  background-image: linear-gradient(
+    260deg,
+    rgba(var(--clr-bg-linear1-stripped), 0.4),
+    rgba(var(--clr-bg-linear1-stripped), 0.1)
+  );
+  border-radius: 2rem;
+  padding: 0.5rem;
+  width: 100%;
+  font-size: clamp(var(--font-xsmall), 1vw, var(--font-large));
+  max-width: 80rem;
+  text-align: center;
+
+  z-index: 99;
+  backdrop-filter: blur(5px);
+}
+
+main {
+  padding: 1.5rem;
+  padding-bottom: 1rem;
+}
+
+#hero {
+  margin-inline: auto;
+  max-width: 80rem;
+  justify-items: center;
+  align-items: stretch;
+  gap: 1rem;
+}
+
+#hero__list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  flex-direction: column;
+  gap: 2rem;
+  margin-inline: auto;
+  max-width: 40rem;
+
+  list-style: none;
+}
+#hero__list li {
+  position: relative;
+
+  display: block;
+  background-image: linear-gradient(
+    250deg,
+    rgb(0, 119, 255, 0.2),
+    rgba(128, 0, 128, 0.2)
+  );
+  background-size: 100%;
+  aspect-ratio: 2;
+  border-radius: 1rem;
+  cursor: pointer;
+  border: 1px solid rgba(var(--clr-border-stripped), 0.5);
+
+  isolation: isolate;
+  transition: background-color 0.2s ease-out, background-size 0.5s ease-out,
+    scale 0.2s ease-out;
+}
+#hero__list li::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 1rem;
+  padding: 0.5rem;
+  z-index: -1;
+
+  border-radius: inherit;
+  background-image: url("../icons/right_arrow.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#hero__list a {
+  padding: 1rem;
+
+  display: flex;
+  height: 100%;
+  gap: 0.5rem;
+  align-items: center;
+  font-size: large;
+  text-decoration: none;
+  border-radius: inherit;
+  z-index: 1;
+  color: var(--clr-text-primary);
+}
+#hero__list img {
+  min-width: 10px;
+  width: 5vw;
+  max-width: 60px;
+}
+#hero__list li:hover {
+  scale: 1.05;
+  background-size: 400%;
+  background-color: rgba(0, 128, 255, 0.5);
+}
+
+@media (max-width: 1200px) {
+  #hero {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 900px) {
+  #hero {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  body {
+    --font-xsmall: 0.7rem;
+    --font-small: 0.8rem;
+    --font-normal: 0.9rem;
+    --font-large: 1rem;
+    --font-xlarge: 1.25rem;
+    --font-xxlarge: 1.5rem;
+  }
+  input {
+    max-width: 15rem;
+    width: 100%;
+    padding: 0.35rem 0.7rem;
+  }
+}
+
+@media (max-width: 315px) {
+  body {
+    --font-xsmall: 0.8rem;
+    --font-small: 0.9rem;
+    --font-normal: 1rem;
+    --font-large: 1.1rem;
+    --font-xlarge: 1.25rem;
+    --font-xxlarge: 1.5rem;
+  }
+  #hero {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

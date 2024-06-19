@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<style>
+  @media (prefers-color-scheme: light) {
+    html {
+      background-color: #EEE;
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    html {
+      background-color: #0d0c0c;
+    }
+  }
+</style>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image" href="../images/logo_transparent.png">
+
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="manifest" href="../manifest.json" />
+  <title>Calcule Moyenne</title>
+</head>
+
+<body color-scheme="dark">
+  <div id="bg"></div>
+
+  <nav id="sidebar" closed>
+    <div class="aside__header">
+      <button id="closeSideBar">
+        <img src="../icons/close.svg" alt="Close">
+      </button>
+    </div>
+    <ul class="aside__list">
+      <li><a href="../info">Informatique</a></li>
+      <li><a href="../science">Science</a></li>
+      <li><a href="../tech" selected>Technique</a></li>
+      <li><a href="../math">Mathématique</a></li>
+      <li><a href="../eco">Économie G.</a></li>
+      <li><a href="../lettre">Lettre</a></li>
+    </ul>
+  </nav>
+
+
+
+  <header>
+    <div id="header__top">
+      <button id="section">
+        Choisir Section
+        <img src="../icons/right_arrow.svg" alt=">">
+      </button>
+
+      <button id="theme">
+        ☀🌙
+      </button>
+    </div>
+
+    <div id="header__content">
+      <h1>
+        Calcule Moyenne Bac Technique
+      </h1>
+    </div>
+  </header>
+
+  <main>
+    <section id="hero">
+      <div class="card" principale>
+        <label>Technique <span>(théorique)</span> :</label>
+        <input type="text" placeholder="votre note.." id="techTheo">
+      </div>
+      <div class="card">
+        <label>Technique <span>(pratique)</span> :</label>
+        <input type="text" placeholder="votre note.." id="techPrat">
+      </div>
+      <div class="card" principale>
+        <label>Mathématique :</label>
+        <input type="text" placeholder="votre note.." id="math">
+      </div>
+      <div class="card">
+        <label>Physique :</label>
+        <input type="text" placeholder="votre note.." id="phy">
+      </div>
+      <div class="card">
+        <label>Informatique :</label>
+        <input type="text" placeholder="votre note.." id="info">
+      </div>
+      <div class="card">
+        <label>Arabe : </label>
+        <input type="text" placeholder="votre note.." id="ar">
+      </div>
+      <div class="card">
+        <label>Français : </label>
+        <input type="text" placeholder="votre note.." id="fr">
+      </div>
+      <div class="card">
+        <label>Anglais : </label>
+        <input type="text" placeholder="votre note.." id="en">
+      </div>
+      <div class="card">
+        <label>Philosophie : </label>
+        <input type="text" placeholder="votre note.." id="philo">
+      </div>
+      <div class="card">
+        <input type="checkbox" name="dispense" id="dispense" title="dispensé ?">
+        <label>Sport : <span>(bac sport)</span></label>
+        <input type="text" placeholder="votre note.." id="sport">
+      </div>
+      <div class="card">
+        <label>Option : </label>
+        <input type="text" placeholder="votre note.." id="option">
+      </div>
+    </section>
+
+    <section id="btns">
+      <button id="annuler">Annuler</button>
+      <button id="calc">Calculer</button>
+    </section>
+
+    <br>
+    <hr style="max-width: 80rem; margin-inline: auto; border: 1px solid #333">
+    <br>
+
+    <section id="resultat">
+      <div>
+        <h3>Moyenne :</h3>
+        <input type="text" id="moy" readonly>
+      </div>
+      <div>
+        <h3>Score (FG) :</h3>
+        <input type="text" id="score" readonly>
+      </div>
+      <div>
+        <h3>Score + (7%) :</h3>
+        <input type="text" id="score+" readonly>
+      </div>
+    </section>
+
+  </main>
+
+</body>
+
+<script src="../js/init.js"></script>
+<script src="./script.js"></script>
+<script src="../app.js"></script>
+
+</html>
