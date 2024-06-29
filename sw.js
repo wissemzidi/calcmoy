@@ -1,4 +1,4 @@
-const staticCacheName = "calcmoy-V1.0.3";
+const staticCacheName = "calcmoy-V1.0.4";
 const assets = [
   "./",
   "./index.php",
